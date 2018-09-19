@@ -11,26 +11,27 @@ public class NumberWizard : MonoBehaviour {
     // Use this for initialization
     void Start () {
 	    
-	    Debug.Log("Welcome to number wizard");
+	    Debug.Log("G'day! Welcome to numba wiz-ud");
         Debug.Log("Pick a number, don't tell me what it is...");
         Debug.Log("The highest number you can pick is: " + max);
         Debug.Log("The lowest number you can pick is: " + min);
-        Debug.Log("Tell me if your number is higher or lower than 500");
+        Debug.Log("Tell me if your number is higher or lower than: " + guess);
         Debug.Log("Push Up = Higher, Push Down = Lower, Enter = Correct");
-	}
+        max += 1;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	    if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            Debug.Log("Up Arrow was pressed.");
 	        min = guess;
-            Debug.Log(guess);
+	        guess = (max + min) / 2;
+            Debug.Log("Is it higher or lower than..." + guess);
 	    } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
-            Debug.Log("Down Arrow was pressed");
-	        max = guess;
-            Debug.Log(guess);
+            max = guess;
+	        guess = (max + min) / 2;
+            Debug.Log("Is it higher or lower than...." + guess);
 	    } else if (Input.GetKeyDown(KeyCode.Return)) {
-            Debug.Log("Enter key was pressed.");
+            Debug.Log("I am a genius!");
 	    }
 	}
 }
